@@ -3,20 +3,16 @@
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "experimentalDecorators": true,
-    "lib": [
-      "dom",
-      "es2015"
-    ],
-    "module": "es2020",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+
+    "module": "ESNext",
     "moduleResolution": "node",
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "outDir": "dist/esm",
     "sourceMap": true,
-    "target": "es2015"
+    "target": "ESNext"
   },
-  "files": [
-    "src/index.ts"
-  ]
+  "files": ["src/index.ts"]
 }
