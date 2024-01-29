@@ -92,15 +92,12 @@ export enum BiometricAuthError {
 }
 
 export interface NativeBiometricPlugin {
+  //if Biometrics are available on the device
   isAvailable(options?: IsAvailableOptions): Promise<AvailableResult>;
 
-  isInitialized(): Promise<boolean>;
+  //returns the public key
+  init(options?: BiometricOptions): Promise<string>;
 
-  verifyIdentity(options?: BiometricOptions): Promise<void>;
-
-  getCredentials(options: GetCredentialOptions): Promise<Credentials>;
-
-  setCredentials(options: SetCredentialOptions): Promise<void>;
-
-  deleteCredentials(options: DeleteCredentialOptions): Promise<void>;
+  //call only if already initialized, otherwise it throws an error
+  getPublicKey(): Promise<string>;
 }

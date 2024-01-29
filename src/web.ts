@@ -2,11 +2,7 @@ import { WebPlugin } from "@capacitor/core";
 import {
   AvailableResult,
   BiometricOptions,
-  Credentials,
-  DeleteCredentialOptions,
-  GetCredentialOptions,
   NativeBiometricPlugin,
-  SetCredentialOptions,
 } from "./definitions";
 
 export class NativeBiometricWeb
@@ -20,19 +16,12 @@ export class NativeBiometricWeb
     throw new Error("Method not implemented.");
   }
 
-  isInitialized(): Promise<boolean> {
+  init(_options?: BiometricOptions): Promise<string> {
     throw new Error("Method not implemented.");
   }
-  verifyIdentity(_options?: BiometricOptions): Promise<void> {
-    throw new Error("Method not implemented.");
-  }
-  getCredentials(_options: GetCredentialOptions): Promise<Credentials> {
-    throw new Error("Method not implemented.");
-  }
-  setCredentials(_options: SetCredentialOptions): Promise<void> {
-    throw new Error("Method not implemented.");
-  }
-  deleteCredentials(_options: DeleteCredentialOptions): Promise<void> {
+
+  //call only if already initialized, otherwise it throws an error
+  getPublicKey(): Promise<string> {
     throw new Error("Method not implemented.");
   }
 }
