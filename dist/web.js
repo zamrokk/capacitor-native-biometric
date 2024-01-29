@@ -6,6 +6,9 @@ export class NativeBiometricWeb extends WebPlugin {
     isAvailable() {
         throw new Error("Method not implemented.");
     }
+    isInitialized() {
+        throw new Error("Method not implemented.");
+    }
     verifyIdentity(_options) {
         throw new Error("Method not implemented.");
     }

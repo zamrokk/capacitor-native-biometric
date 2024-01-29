@@ -1,4 +1,4 @@
-package com.epicshaggy.biometric;
+package com.zamrokk.biometric;
 
 import android.content.Intent;
 import android.os.Build;
@@ -17,7 +17,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 
-import com.epicshaggy.biometric.capacitornativebiometric.R;
+import com.zamrokk.biometric.capacitornativebiometric.R;
 
 import java.util.concurrent.Executor;
 

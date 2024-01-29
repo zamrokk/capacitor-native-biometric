@@ -1,12 +1,12 @@
 import { WebPlugin } from "@capacitor/core";
 import {
-  NativeBiometricPlugin,
   AvailableResult,
   BiometricOptions,
-  GetCredentialOptions,
-  SetCredentialOptions,
-  DeleteCredentialOptions,
   Credentials,
+  DeleteCredentialOptions,
+  GetCredentialOptions,
+  NativeBiometricPlugin,
+  SetCredentialOptions,
 } from "./definitions";
 
 export class NativeBiometricWeb
@@ -20,6 +20,9 @@ export class NativeBiometricWeb
     throw new Error("Method not implemented.");
   }
 
+  isInitialized(): Promise<boolean> {
+    throw new Error("Method not implemented.");
+  }
   verifyIdentity(_options?: BiometricOptions): Promise<void> {
     throw new Error("Method not implemented.");
   }

@@ -94,6 +94,8 @@ export enum BiometricAuthError {
 export interface NativeBiometricPlugin {
   isAvailable(options?: IsAvailableOptions): Promise<AvailableResult>;
 
+  isInitialized(): Promise<boolean>;
+
   verifyIdentity(options?: BiometricOptions): Promise<void>;
 
   getCredentials(options: GetCredentialOptions): Promise<Credentials>;

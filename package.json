@@ -10,7 +10,7 @@
     "watch": "tsc --watch",
     "prepublishOnly": "npm run build"
   },
-  "author": "Jose Martinez",
+  "author": "Benjamin Fuentes",
   "license": "MIT",
   "dependencies": {
     "@capacitor/core": "^3.4.3"
