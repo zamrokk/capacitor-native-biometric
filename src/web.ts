@@ -24,4 +24,11 @@ export class NativeBiometricWeb
   getPublicKey(): Promise<string> {
     throw new Error("Method not implemented.");
   }
+
+  //sign payload with optional magic bytes
+  sign(watermarkedBytes: string): Promise<{
+    signature: string;
+  }> {
+    throw new Error("Method not implemented." + watermarkedBytes);
+  }
 }

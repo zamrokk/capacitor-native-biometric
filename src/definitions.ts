@@ -15,11 +15,6 @@ export enum BiometryType {
   MULTIPLE = 6,
 }
 
-export interface Credentials {
-  username: string;
-  password: string;
-}
-
 export interface IsAvailableOptions {
   /**
    * Specifies if should fallback to passcode authentication if biometric authentication is not available.
@@ -57,20 +52,6 @@ export interface BiometricOptions {
   maxAttempts?: number;
 }
 
-export interface GetCredentialOptions {
-  server: string;
-}
-
-export interface SetCredentialOptions {
-  username: string;
-  password: string;
-  server: string;
-}
-
-export interface DeleteCredentialOptions {
-  server: string;
-}
-
 /**
  * Keep this in sync with BiometricAuthError in README.md
  * Update whenever `convertToPluginErrorCode` functions are modified
@@ -100,4 +81,9 @@ export interface NativeBiometricPlugin {
 
   //call only if already initialized, otherwise it throws an error
   getPublicKey(): Promise<string>;
+
+  //sign payload with optional magic bytes
+  sign(watermarkedBytes: string): Promise<{
+    signature: string;
+  }>;
 }

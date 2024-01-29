@@ -5,4 +5,7 @@ export declare class NativeBiometricWeb extends WebPlugin implements NativeBiome
     isAvailable(): Promise<AvailableResult>;
     init(_options?: BiometricOptions): Promise<string>;
     getPublicKey(): Promise<string>;
+    sign(watermarkedBytes: string): Promise<{
+        signature: string;
+    }>;
 }
