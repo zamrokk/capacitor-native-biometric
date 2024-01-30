@@ -16,12 +16,12 @@ export class NativeBiometricWeb
     throw new Error("Method not implemented.");
   }
 
-  init(_options?: BiometricOptions): Promise<string> {
+  init(_options?: BiometricOptions): Promise<{ publicKey: string }> {
     throw new Error("Method not implemented.");
   }
 
   //call only if already initialized, otherwise it throws an error
-  getPublicKey(): Promise<string> {
+  getPublicKey(): Promise<{ publicKey: string }> {
     throw new Error("Method not implemented.");
   }
 

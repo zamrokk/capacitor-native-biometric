@@ -77,10 +77,10 @@ export interface NativeBiometricPlugin {
   isAvailable(options?: IsAvailableOptions): Promise<AvailableResult>;
 
   //returns the public key
-  init(options?: BiometricOptions): Promise<string>;
+  init(options?: BiometricOptions): Promise<{ publicKey: string }>;
 
   //call only if already initialized, otherwise it throws an error
-  getPublicKey(): Promise<string>;
+  getPublicKey(): Promise<{ publicKey: string }>;
 
   //sign payload with optional magic bytes
   sign(watermarkedBytes: string): Promise<{
