@@ -1,4 +1,4 @@
-package com.zamrokk.biometric;
+package com.epicshaggy.biometric;
 
 import android.app.Activity;
 import android.app.KeyguardManager;
