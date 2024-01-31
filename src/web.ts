@@ -26,9 +26,9 @@ export class NativeBiometricWeb
   }
 
   //sign payload with optional magic bytes
-  sign(watermarkedBytes: string): Promise<{
+  sign(options: { payload: string }): Promise<{
     signature: string;
   }> {
-    throw new Error("Method not implemented." + watermarkedBytes);
+    throw new Error("Method not implemented." + options);
   }
 }

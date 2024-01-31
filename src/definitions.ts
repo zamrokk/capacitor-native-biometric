@@ -83,7 +83,7 @@ export interface NativeBiometricPlugin {
   getPublicKey(): Promise<{ publicKey: string }>;
 
   //sign payload with optional magic bytes
-  sign(watermarkedBytes: string): Promise<{
+  sign(options: { payload: string }): Promise<{
     signature: string;
   }>;
 }
