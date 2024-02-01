@@ -298,6 +298,8 @@ public class NativeBiometric extends Plugin {
                 Log.i("PUBLIC COMP KEY LENGHT",  bcecPublicKey.getQ().getEncoded(true).length + "");
                 Log.i("PUBLIC COMP HEX",  hex(bcecPublicKey.getQ().getEncoded(true)) + "");
 
+                Log.i("PUBLICK ALGO",key.getPublic().getAlgorithm());
+
                 ret.put("publicKey", hex(bcecPublicKey.getQ().getEncoded(true)));
 
             } catch (Exception e) {
@@ -309,7 +311,7 @@ public class NativeBiometric extends Plugin {
 
             KeyFactory keyFactory = null;
             try {
-                keyFactory = KeyFactory.getInstance(KeyProperties.KEY_ALGORITHM_EC, "AndroidKeyStore");
+                keyFactory = KeyFactory.getInstance(KeyProperties.KEY_ALGORITHM_EC, ANDROID_KEY_STORE);
             } catch (NoSuchAlgorithmException e) {
                 throw new RuntimeException(e);
             } catch (NoSuchProviderException e) {

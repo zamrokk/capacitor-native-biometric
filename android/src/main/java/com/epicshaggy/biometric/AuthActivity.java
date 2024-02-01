@@ -24,6 +24,7 @@ import org.spongycastle.jcajce.provider.digest.Blake2b;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.security.AlgorithmParameters;
 import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.KeyStore;
@@ -32,6 +33,9 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.UnrecoverableEntryException;
 import java.security.cert.CertificateException;
+import java.security.spec.ECGenParameterSpec;
+import java.security.spec.ECParameterSpec;
+import java.security.spec.InvalidParameterSpecException;
 import java.util.Arrays;
 import java.util.concurrent.Executor;
 
@@ -164,7 +168,14 @@ public class AuthActivity extends AppCompatActivity {
             ks = KeyStore.getInstance(ANDROID_KEY_STORE);
             ks.load(null);
 
-            cipher = Cipher.getInstance(KeyProperties.KEY_ALGORITHM_EC,ANDROID_KEY_STORE);
+            AlgorithmParameters algoParameters = AlgorithmParameters.getInstance("EC");
+            algoParameters.init(new ECGenParameterSpec("secp256r1"));
+
+            //FIXME Android cannot sign with EC keys ... no algo available, only RSA
+            cipher = Cipher.getInstance("NID_X9_62_prime256v1",ANDROID_KEY_STORE);
+
+            //new ECGenParameterSpec("secp256r1")
+
             Key key = ks.getKey("TEZOS",null);
             cipher.init(Cipher.ENCRYPT_MODE, key);
 
@@ -183,6 +194,8 @@ public class AuthActivity extends AppCompatActivity {
         } catch (InvalidKeyException e) {
             throw new RuntimeException(e);
         } catch (NoSuchProviderException e) {
+            throw new RuntimeException(e);
+        } catch (InvalidParameterSpecException e) {
             throw new RuntimeException(e);
         }
 
